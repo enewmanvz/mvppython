@@ -2,22 +2,12 @@ import './App.css';
 import {useState, useEffect} from 'react';
 import {Button, Card, CardGroup, Col, Row, Spinner} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import UpdateFood from "./components/editFood";
 
 
 function App() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [food, setFood] = useState([]);
-  const [counter, setCounter] = useState(0);
-
-  // const addFood = (newFood) => {
-  //   setFood([...food, newFood]);
-  // };
-
-  const passFoodID = (oneFoodItem) => {
-      setFood(oneFoodItem)
-  }
 
   useEffect(() => {
     fetch('http://localhost:5000/foodies')
@@ -41,8 +31,6 @@ function App() {
   return (
       <>
           <main className="App">
-              {/*- Call the Child Component in the Parent Component */}
-              <UpdateFood passFoodID={{food}}/>
             <CardGroup>
                 <Row xs={1} md={2} className="g-4">
               {food.map(item => (
@@ -53,15 +41,7 @@ function App() {
                         <Card.Title>{item.food_name}</Card.Title>
                         <Card.Text>Category: {item.meal_category}</Card.Text>
                         <Card.Text>{item.quantity} Remaining</Card.Text>
-                          {/*  <NavLink*/}
-                        {/*        className="navbar-item"*/}
-                        {/*        activeClassName="is-active"*/}
-                        {/*        to={`http://localhost:5000/food_details/${item.food_id}`}*/}
-                        {/*        exact*/}
-                        {/*    >*/}
-                        {/*  <a href="./components/editFood.jsx"><Button variant="warning">Edit</Button></a>*/}
-                        {/*</NavLink>*/}
-                        <Link to="/update_food"><Button onClick={() => passFoodID(item)} variant="warning">Edit</Button></Link>
+                        <Link to="/update_food"><Button variant="warning" disabled>Edit</Button></Link>
                       </Card.Body>
                     </Card>
                   </Col>
@@ -74,6 +54,3 @@ function App() {
 }
 
 export default App;
-
-
-//<Card.Img variant="top" src='https://images.unsplash.com/photo-1614332287897-cdc485fa562d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80' />
