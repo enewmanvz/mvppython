@@ -1,0 +1,167 @@
+{
+	"info": {
+		"_postman_id": "df02f269-34b9-4400-8aed-2ab5df60ec7d",
+		"name": "Food Bandits",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Read Food Item Information",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/food_details/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"food_details",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Food Item",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY0OTI4MDI5MCwianRpIjoiODNkYzc0YWEtM2ViZC00N2IwLTk4ZWUtNjgwNjdkODg1ODY2IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6Iml5YW5uYS5iZWxsQHZlcml6b24uY29tIiwibmJmIjoxNjQ5MjgwMjkwLCJleHAiOjE2NDkyODExOTB9.8A1srHlcIrpUSkNb0rHMl-k5xgNVLcdYrWHaQYchXM4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "food_name",
+							"value": "Banana",
+							"type": "default"
+						},
+						{
+							"key": "meal_category",
+							"value": "Snack",
+							"type": "default"
+						},
+						{
+							"key": "quantity",
+							"value": "5",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/new_food",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"new_food"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Food Item Information",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY0OTcxMDA0NywianRpIjoiNzU0MjQ0OWMtNTlhYS00YTQzLWIwMjktM2JiM2E1ZDcxYmI4IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImJjcnlwdEB0ZXN0LmNvbSIsIm5iZiI6MTY0OTcxMDA0NywiZXhwIjoxNjQ5NzEwOTQ3fQ.4ags6hrhxCNi60HomUpG8MM4T7uwjCjIUPsG35R3pKM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "food_id",
+							"value": "2",
+							"type": "default"
+						},
+						{
+							"key": "food_name",
+							"value": "Honey Bunches of Oats",
+							"type": "default"
+						},
+						{
+							"key": "meal_category",
+							"value": "Breakfast",
+							"type": "default"
+						},
+						{
+							"key": "quantity",
+							"value": "5",
+							"type": "default"
+						},
+						{
+							"key": "image",
+							"value": "https://images.unsplash.com/photo-1521483451569-e33803c0330c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=785&q=80",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/update_food",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"update_food"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Food Item",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY0OTI4MTUyMywianRpIjoiOGY1YjljNTQtZjkwMi00MmNiLWI0ZTUtMDI4ZTkwMTc1ODI1IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6Iml5YW5uYS5iZWxsQHZlcml6b24uY29tIiwibmJmIjoxNjQ5MjgxNTIzLCJleHAiOjE2NDkyODI0MjN9.Ypz4yjhkWb-O4QJE8FQkGpphnQBklKq27xiE9AF7M94",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/destroy/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"destroy",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
