@@ -25,49 +25,6 @@ bcrypt = Bcrypt(app)
 cors = CORS()
 
 
-# Flask CLI commands
-@app.cli.command('db_create')
-def db_create():
-    db.create_all()
-    print('Database created successfully')
-
-
-@app.cli.command('db_drop')
-def db_drop():
-    db.drop_all()
-    print('Database destroyed successfully')
-
-
-@app.cli.command('db_seed')
-def db_seed():
-    eggs = Food(food_name='Eggs',
-                meal_category='Breakfast',
-                image='https://images.unsplash.com/photo-1612878010854-1250dfc5000a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
-                quantity=12)
-
-    cereal = Food(food_name='Honey Bunches of Oats',
-                  meal_category='Breakfast',
-                  image='',
-                  quantity=5)
-
-    french_toast = Food(food_name='French Toast Sticks',
-                        meal_category='Breakfast',
-                        image='null',
-                        quantity=2)
-    db.session.add(eggs)
-    db.session.add(cereal)
-    db.session.add(french_toast)
-
-    test_user = User(first_name='Iyanna',
-                     last_name='Bell',
-                     email='iyanna.bell@verizon.com',
-                     password='P@ssw0rd')
-
-    db.session.add(test_user)
-    db.session.commit()
-    print('Database seeded successfully')
-
-
 @app.route('/')
 def hello_world():
     return 'Hello World!'
